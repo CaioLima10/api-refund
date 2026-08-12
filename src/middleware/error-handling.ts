@@ -9,6 +9,7 @@ const errorHandling: ErrorRequestHandler = (
     _next ) => {    
   if(error instanceof AppError) {
     response.status(error.statusCode).json({ message: error.message })
+    return
   }
   
   if(error instanceof ZodError) {
